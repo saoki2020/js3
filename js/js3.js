@@ -11,35 +11,37 @@
 
     const tbody = document.querySelector('tbody');
 
-    //clear screen
-    while (tbody.firstChild) {
-      tbody.removeChild(tbody.firstChild);
-    }
-
     //output on screen
-    for (let i = 0; i < tasks.length; i++){
-      const row = tbody.insertRow();
+    const show_task = () => {
+      //clear screen
+      while (tbody.firstChild) {
+        tbody.removeChild(tbody.firstChild);
+      }
 
-      const idCell = row.insertCell();
-      const id = document.createTextNode(tasks[i].id);
-      idCell.appendChild(id);
+      tasks.forEach(task => {
+        const row = tbody.insertRow();
 
-      const commentCell = row.insertCell();
-      const comment = document.createTextNode(tasks[i].comment);
-      commentCell.appendChild(comment);
+        const idCell = row.insertCell();
+        const id = document.createTextNode(task.id);
+        idCell.appendChild(id);
 
-      const statusCell = row.insertCell();
-      const statusBtn = document.createElement("BUTTON");
-      statusBtn.innerHTML = tasks[i].status;
-      statusCell.appendChild(statusBtn);
+        const commentCell = row.insertCell();
+        const comment = document.createTextNode(task.comment);
+        commentCell.appendChild(comment);
 
-      const deleteCell = row.insertCell();
-      const deleteBtn = document.createElement("BUTTON");
-      deleteBtn.innerHTML = "削除";
-      deleteCell.appendChild(deleteBtn);
+        const statusCell = row.insertCell();
+        const statusBtn = document.createElement("BUTTON");
+        statusBtn.textContent = task.status;
+        statusCell.appendChild(statusBtn);
+
+        const deleteCell = row.insertCell();
+        const deleteBtn = document.createElement("BUTTON");
+        deleteBtn.textContent = "削除";
+        deleteCell.appendChild(deleteBtn);
+      });
+      //clear form
+      task.value = "";
     }
-
-    //clear form
-    task.value = "";
+    show_task();
   });
 }

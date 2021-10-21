@@ -1,1 +1,28 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript課題③</title>
+  </head>
+  <body>
+    <h1>ToDoリスト</h1>
+    <label><input type="radio" name="task_status" value="everything" checked>すべて</label>
+    <label><input type="radio" name="task_status" value="working">作業中</label>
+    <label><input type="radio" name="task_status" value="complete">完了</label>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th><th>コメント</th><th>状態</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <h2>新規タスクの追加</h2>
+    <form>
+      <input type="text" name="input_task" id="input_task">
+      <input type="submit" value="追加">
+    </form>
+  <script src="js/js3.js"></script>
+  </body>
+</html>

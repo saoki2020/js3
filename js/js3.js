@@ -31,17 +31,17 @@
       deleteBtn.textContent = "削除";
       deleteCell.appendChild(deleteBtn);
 
-     //delete task
-        deleteBtn.onclick = () => {
-          tasks.splice(task.id, 1);
-          tasks.forEach((task, index) => {
-            task.id = index;
-          });
-          showTask();
-        }
+      //delete task
+         deleteBtn.addEventListener('click', () => {
+           tasks.splice(task.id, 1);
+           tasks.forEach((task, index) => {
+             task.id = index;
+           });
+           showTask();
+         });
     });
   }
-  
+
   document.querySelector('form').addEventListener('submit', (e) => {
     e.preventDefault();
 

@@ -26,19 +26,30 @@
       statusBtn.textContent = task.status;
       statusCell.appendChild(statusBtn);
 
+      //change status
+      statusBtn.addEventListener('click', () => {
+        if (task.status === "作業中") {
+          task.status = "完了";
+          statusBtn.textContent = task.status;
+        } else {
+          task.status = "作業中";
+          statusBtn.textContent = task.status;
+        }
+      });
+      
       const deleteCell = row.insertCell();
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "削除";
       deleteCell.appendChild(deleteBtn);
 
       //delete task
-         deleteBtn.addEventListener('click', () => {
-           tasks.splice(task.id, 1);
-           tasks.forEach((task, index) => {
-             task.id = index;
-           });
-           showTask();
-         });
+      deleteBtn.addEventListener('click', () => {
+        tasks.splice(task.id, 1);
+        tasks.forEach((task, index) => {
+          task.id = index;
+        });
+        showTask();
+      });
     });
   }
 

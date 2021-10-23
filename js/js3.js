@@ -30,13 +30,12 @@
       statusBtn.addEventListener('click', () => {
         if (task.status === "作業中") {
           task.status = "完了";
-          statusBtn.textContent = task.status;
         } else {
           task.status = "作業中";
-          statusBtn.textContent = task.status;
         }
+        statusBtn.textContent = task.status;
       });
-      
+
       const deleteCell = row.insertCell();
       const deleteBtn = document.createElement("button");
       deleteBtn.textContent = "削除";
